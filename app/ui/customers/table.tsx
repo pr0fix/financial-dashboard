@@ -3,6 +3,7 @@ import { lusitana } from "@/app/ui/fonts";
 import Search from "@/app/ui/search";
 import { FormattedCustomersTable } from "@/app/lib/definitions";
 import { fetchFilteredCustomers } from "@/app/lib/data";
+import { CreateCustomer } from "../invoices/buttons";
 
 interface CustomersTableProps {
   query: string;
@@ -21,10 +22,15 @@ export default async function CustomersTable({
 
   return (
     <div className="w-full">
-      <h1 className={`${lusitana.className} mb-8 text-xl md:text-2xl`}>
-        Customers
-      </h1>
-      <Search placeholder="Search customers..." />
+      <div className="flex w-full items-center justify-between">
+        <h1 className={`${lusitana.className} text-xl md:text-2xl`}>
+          Customers
+        </h1>
+      </div>
+      <div className="flex mt-4 items-center justify-between gap-2 md:mt-8">
+        <Search placeholder="Search customers..." />
+        <CreateCustomer/>
+      </div>
       <div className="mt-6 flow-root">
         <div className="overflow-x-auto">
           <div className="inline-block min-w-full align-middle">
