@@ -14,7 +14,6 @@ export default async function Page(props: {
   const searchParams = await props.searchParams;
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
-  
 
   if (!props) {
     notFound();
@@ -23,7 +22,7 @@ export default async function Page(props: {
   return (
     <main>
       <Suspense key={query + currentPage} fallback={<CustomersTableSkeleton />}>
-        <CustomersTable query={query} onNotFound={notFound}/>
+        <CustomersTable query={query} onNotFound={notFound} />
       </Suspense>
     </main>
   );
