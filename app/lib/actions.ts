@@ -1,45 +1,22 @@
 "use server";
 
-import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import postgres from "postgres";
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
+import { CreateCustomer, CreateInvoice, UpdateInvoice } from "./schemas";
+import { randomUUID } from "crypto";
+import { CustomerState, InvoiceState } from "./definitions";
 
 const sql = postgres(process.env.POSTGRES_URL!, {
   ssl: process.env.NODE_ENV === "production" ? "require" : false,
 });
 
-const FormSchema = z.object({
-  id: z.string(),
-  customerId: z.string({
-    invalid_type_error: "Please select a customer.",
-    required_error: "Please select a customer.",
-  }),
-  amount: z.coerce
-    .number()
-    .gt(0, { message: "Please enter an amount greater than $0." }),
-  status: z.enum(["pending", "paid"], {
-    invalid_type_error: "Please select an invoice status.",
-    required_error: "Please select an invoice status.",
-  }),
-  date: z.string(),
-});
-
-const CreateInvoice = FormSchema.omit({ id: true, date: true });
-const UpdateInvoice = FormSchema.omit({ id: true, date: true });
-
-export type State = {
-  errors?: {
-    customerId?: string[];
-    amount?: string[];
-    status?: string[];
-  };
-  message?: string | null;
-};
-
-export async function createInvoice(prevState: State, formData: FormData) {
+export async function createInvoice(
+  _prevState: InvoiceState,
+  formData: FormData
+) {
   const validatedFields = CreateInvoice.safeParse(Object.fromEntries(formData));
 
   if (!validatedFields.success) {
@@ -70,7 +47,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
 
 export async function updateInvoice(
   id: string,
-  prevState: State,
+  _prevState: InvoiceState,
   formData: FormData
 ) {
   const validatedFields = UpdateInvoice.safeParse(Object.fromEntries(formData));
@@ -129,4 +106,39 @@ export async function authenticate(
     }
     throw error;
   }
+}
+
+export async function createCustomer(
+  _prevState: CustomerState,
+  imageUrl: string,
+  formData: FormData
+) {
+  formData.append("image_url", imageUrl);
+
+  const validatedFields = CreateCustomer.safeParse(
+    Object.fromEntries(formData)
+  );
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Missing Fields. Failed to Create Customer.",
+    };
+  }
+  const customerId = randomUUID();
+  const { name, email, image_url } = validatedFields.data;
+
+  try {
+    await sql`
+      INSERT INTO customers (id, name, email, image_url)
+      VALUES (${customerId}, ${name}, ${email}, ${image_url})
+    `;
+  } catch (error) {
+    return {
+      message: "Database Error: Failed to Create Customer.",
+    };
+  }
+
+  revalidatePath("/dashboard/customers");
+  redirect("/dashboard/customers");
 }
