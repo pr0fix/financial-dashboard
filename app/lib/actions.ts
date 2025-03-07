@@ -5,7 +5,12 @@ import { redirect } from "next/navigation";
 import postgres from "postgres";
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
-import { CreateCustomer, CreateInvoice, UpdateInvoice } from "./schemas";
+import {
+  CreateCustomer,
+  CreateInvoice,
+  UpdateCustomer,
+  UpdateInvoice,
+} from "./schemas";
 import { randomUUID } from "crypto";
 import { CustomerState, InvoiceState } from "./definitions";
 
@@ -143,6 +148,44 @@ export async function createCustomer(
     };
   }
 
+  revalidatePath("/dashboard/customers");
+  redirect("/dashboard/customers");
+}
+
+export async function updateCustomer(
+  id: string,
+  _prevState: CustomerState,
+  formData: FormData
+) {
+  const existingCustomer = await sql`
+  SELECT image_url FROM customers WHERE id = ${id}`;
+
+  formData.append("image_url", existingCustomer[0].image_url);
+  const validatedFields = UpdateCustomer.safeParse(
+    Object.fromEntries(formData)
+  );
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Missing Fields. Failed to Update Customer",
+    };
+  }
+
+  const { name, email } = validatedFields.data;
+
+  try {
+    await sql`
+    UPDATE customers
+    SET name = ${name}, email = ${email}
+    WHERE id = ${id}
+    `;
+  } catch (error) {
+    console.error("Database Error: Failed to Update Customer", error);
+    return {
+      message: "Database Error: Failed to Update Customer",
+    };
+  }
   revalidatePath("/dashboard/customers");
   redirect("/dashboard/customers");
 }

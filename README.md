@@ -67,10 +67,12 @@ To get started with the project, follow these steps:
 
 ### Upcoming Features
 
-- [ ] Edit customer details
+- [x] Edit customer details
 - [ ] Delete customer
 - [ ] Real data charts instead of current representational ones
 - [ ] Feature to see when the data was last updated
 - [ ] Write tests
 - [ ] Deploy the application & update pipeline configuration
 - [ ] Settings page for changing theme and other preferences
+- [ ] Sign up feature
+- [ ] Create a fallback to homepage with error message for when database isn't accessible
