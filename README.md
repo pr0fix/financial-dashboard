@@ -67,7 +67,8 @@ To get started with the project, follow these steps:
 ### Planned Features
 
 - [x] Edit customer details
-- [ ] Delete customer
+- [x] Delete customer
+- [ ] Implement an alert to confirm deletion/editing of customer
 - [ ] Real data charts instead of current representational ones
 - [ ] Feature to see when the data was last updated
 - [ ] Write tests
