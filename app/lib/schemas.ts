@@ -37,3 +37,4 @@ export const CustomerFormSchema = z.object({
 export const CreateInvoice = InvoiceFormSchema.omit({ id: true, date: true });
 export const UpdateInvoice = InvoiceFormSchema.omit({ id: true, date: true });
 export const CreateCustomer = CustomerFormSchema.omit({ id: true });
+export const UpdateCustomer = CustomerFormSchema.omit({ id: true });

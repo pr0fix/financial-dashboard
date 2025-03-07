@@ -6,7 +6,7 @@ import { CustomersTableSkeleton } from "@/app/ui/skeletons";
 import { fetchCustomersPages } from "@/app/lib/data";
 import Pagination from "@/app/ui/pagination";
 import { lusitana } from "@/app/ui/fonts";
-import { CreateCustomer } from "@/app/ui/invoices/buttons";
+import { CreateCustomer } from "@/app/ui/buttons";
 import Search from "@/app/ui/search";
 
 export const metadata: Metadata = {

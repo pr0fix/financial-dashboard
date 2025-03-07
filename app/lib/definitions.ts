@@ -98,3 +98,9 @@ export type CustomerState = {
   };
   message?: string | null;
 };
+
+export type CustomerForm = {
+  id: string;
+  name: string;
+  email: string;
+};
