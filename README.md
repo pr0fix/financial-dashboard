@@ -8,6 +8,7 @@ For more information, see the [App Router Course](https://nextjs.org/learn/dashb
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
+- [Upcoming Features](#upcoming-features)
 
 ### Features
 
@@ -64,7 +65,7 @@ To get started with the project, follow these steps:
 
 7. Open your browser and visit `http://localhost:3000` to see the application in action!
 
-### Planned Features
+### Upcoming Features
 
 - [x] Edit customer details
 - [x] Delete customer
