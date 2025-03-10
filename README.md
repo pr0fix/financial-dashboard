@@ -84,4 +84,4 @@ To get started with the project, follow these steps:
 
 ### Known bugs
 
-- [ ] Fix edit and delete buttons not showing on customers page when on mobile
+- [x] Fix edit and delete buttons not showing on customers page when on mobile
