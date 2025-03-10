@@ -3,7 +3,7 @@
 import { deleteInvoice, deleteCustomer } from "@/app/lib/actions";
 import { PencilIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import ConfirmDialog from "../customers/confirm-dialog";
 import { AlertDialog, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 
@@ -69,37 +69,21 @@ export function UpdateCustomer({ id }: { id: string }) {
 }
 
 export function DeleteCustomer({ id }: { id: string }) {
-  const [isDialogOpen, setDialogOpen] = useState(false);
-
-  const handleDialogOpen = () => {
-    setDialogOpen(true);
-  };
-
   const handleConfirmDelete = async () => {
     await deleteCustomer(id);
-    setDialogOpen(false);
-  };
-
-  const handleCancelDelete = () => {
-    setDialogOpen(false);
   };
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger
-        className="rounded-md border p-2 hover:bg-red-500 hover:text-white"
-        onClick={handleDialogOpen}
-      >
+      <AlertDialogTrigger className="rounded-md border p-2 hover:bg-red-500 hover:text-white">
         <TrashIcon className="w-5" />
       </AlertDialogTrigger>
-      {isDialogOpen && (
-        <ConfirmDialog
-          onConfirm={handleConfirmDelete}
-          onCancel={handleCancelDelete}
-          message="This action cannot be undone. This will permanently delete this
+
+      <ConfirmDialog
+        onConfirm={handleConfirmDelete}
+        message="This action cannot be undone. This will permanently delete this
           customer from our servers."
-        />
-      )}
+      />
     </AlertDialog>
   );
 }

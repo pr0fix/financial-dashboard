@@ -10,28 +10,21 @@ import {
 
 interface ConfirmDialogProps {
   onConfirm: () => Promise<void>;
-  onCancel: () => void;
   message: string;
 }
 
 export default function ConfirmDialog({
   onConfirm,
-  onCancel,
   message,
 }: ConfirmDialogProps) {
   return (
     <AlertDialogContent>
       <AlertDialogHeader>
         <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-        <AlertDialogDescription>
-          {message}
-        </AlertDialogDescription>
+        <AlertDialogDescription>{message}</AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter>
-        <AlertDialogCancel
-          onClick={onCancel}
-          className="hover:bg-red-500 hover:text-white"
-        >
+        <AlertDialogCancel className="hover:bg-red-500 hover:text-white">
           Cancel
         </AlertDialogCancel>
         <AlertDialogAction

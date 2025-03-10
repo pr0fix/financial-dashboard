@@ -71,7 +71,8 @@ To get started with the project, follow these steps:
 - [x] Delete customer
 - [x] Implement alert dialog component
 - [x] Add alert dialog to deletion of customer
-- [ ] Add alert dialog to editing of customer
+- [x] Add alert dialog to editing of customer
+- [ ] Add alert dialogs to deleting and editing an invoice
 - [ ] Real data charts instead of current representational ones
 - [ ] Feature to see when the data was last updated
 - [ ] Write tests
