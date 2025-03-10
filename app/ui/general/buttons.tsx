@@ -31,17 +31,21 @@ export function UpdateInvoice({ id }: { id: string }) {
 }
 
 export function DeleteInvoice({ id }: { id: string }) {
-  const handleDelete = async () => {
+  const handleConfirmDelete = async () => {
     await deleteInvoice(id);
   };
 
   return (
-    <form action={handleDelete}>
-      <button type="submit" className="rounded-md border p-2 hover:bg-gray-100">
-        <span className="sr-only">Delete</span>
+    <AlertDialog>
+      <AlertDialogTrigger className="rounded-md border p-2 hover:bg-red-500 hover:text-white">
         <TrashIcon className="w-5" />
-      </button>
-    </form>
+      </AlertDialogTrigger>
+
+      <ConfirmDialog
+        onConfirm={handleConfirmDelete}
+        message="This action cannot be undone. This invoice will be permanently deleted from our servers."
+      />
+    </AlertDialog>
   );
 }
 
