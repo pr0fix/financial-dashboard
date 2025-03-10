@@ -1,7 +1,11 @@
+"use client";
+
 import { deleteInvoice, deleteCustomer } from "@/app/lib/actions";
 import { PencilIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import ConfirmDialog from "../customers/confirm-dialog";
+import { AlertDialog, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 
 export function CreateInvoice() {
   return (
@@ -27,11 +31,8 @@ export function UpdateInvoice({ id }: { id: string }) {
 }
 
 export function DeleteInvoice({ id }: { id: string }) {
-  const deleteInvoiceWithId = deleteInvoice.bind(null, id);
-
   const handleDelete = async () => {
-    "use server";
-    await deleteInvoiceWithId();
+    await deleteInvoice(id);
   };
 
   return (
@@ -68,22 +69,37 @@ export function UpdateCustomer({ id }: { id: string }) {
 }
 
 export function DeleteCustomer({ id }: { id: string }) {
-  const deleteCustomerWithId = deleteCustomer.bind(null, id);
+  const [isDialogOpen, setDialogOpen] = useState(false);
 
-  const handleDelete = async () => {
-    "use server";
-    await deleteCustomerWithId();
+  const handleDialogOpen = () => {
+    setDialogOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    await deleteCustomer(id);
+    setDialogOpen(false);
+  };
+
+  const handleCancelDelete = () => {
+    setDialogOpen(false);
   };
 
   return (
-    <form action={handleDelete}>
-      <button
-        type="submit"
+    <AlertDialog>
+      <AlertDialogTrigger
         className="rounded-md border p-2 hover:bg-red-500 hover:text-white"
+        onClick={handleDialogOpen}
       >
-        <span className="sr-only">Delete</span>
         <TrashIcon className="w-5" />
-      </button>
-    </form>
+      </AlertDialogTrigger>
+      {isDialogOpen && (
+        <ConfirmDialog
+          onConfirm={handleConfirmDelete}
+          onCancel={handleCancelDelete}
+          message="This action cannot be undone. This will permanently delete this
+          customer from our servers."
+        />
+      )}
+    </AlertDialog>
   );
 }

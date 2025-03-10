@@ -69,7 +69,9 @@ To get started with the project, follow these steps:
 
 - [x] Edit customer details
 - [x] Delete customer
-- [ ] Implement an alert to confirm deletion/editing of customer
+- [x] Implement alert dialog component
+- [x] Add alert dialog to deletion of customer
+- [ ] Add alert dialog to editing of customer
 - [ ] Real data charts instead of current representational ones
 - [ ] Feature to see when the data was last updated
 - [ ] Write tests
@@ -78,3 +80,7 @@ To get started with the project, follow these steps:
 - [ ] Sign up feature
 - [ ] Create a fallback to homepage with error message for when database isn't accessible
 - [ ] Create loading skeletons for components
+
+### Known bugs
+
+- [ ] Fix edit and delete buttons not showing on customers page when on mobile

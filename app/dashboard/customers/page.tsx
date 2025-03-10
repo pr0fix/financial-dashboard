@@ -2,12 +2,12 @@ import { Metadata } from "next";
 import Table from "@/app/ui/customers/table";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { CustomersTableSkeleton } from "@/app/ui/skeletons";
+import { CustomersTableSkeleton } from "@/app/ui/general/skeletons";
 import { fetchCustomersPages } from "@/app/lib/data";
-import Pagination from "@/app/ui/pagination";
-import { lusitana } from "@/app/ui/fonts";
-import { CreateCustomer } from "@/app/ui/buttons";
-import Search from "@/app/ui/search";
+import Pagination from "@/app/ui/general/pagination";
+import { lusitana } from "@/app/ui/general/fonts";
+import { CreateCustomer } from "@/app/ui/general/buttons";
+import Search from "@/app/ui/general/search";
 
 export const metadata: Metadata = {
   title: "Customers",

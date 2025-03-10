@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FormattedCustomersTable } from "@/app/lib/definitions";
 import { fetchFilteredCustomers } from "@/app/lib/data";
-import {  DeleteCustomer, UpdateCustomer } from "../buttons";
+import { DeleteCustomer, UpdateCustomer } from "../general/buttons";
 
 interface CustomersTableProps {
   query: string;
