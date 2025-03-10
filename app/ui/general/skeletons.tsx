@@ -319,3 +319,7 @@ export function CustomersTableSkeleton() {
     </div>
   );
 }
+
+export function SettingsContainerSkeleton() {
+  return <div>not implemented yet</div>;
+}
