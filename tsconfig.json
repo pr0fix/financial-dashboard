@@ -29,7 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/lib/placeholder-data.ts",
-    "app/seed/route.ts"
+    "app/seed/route.ts",
+    "./jest-setup.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }
