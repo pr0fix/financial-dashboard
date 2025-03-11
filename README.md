@@ -74,7 +74,7 @@ To get started with the project, follow these steps:
 - [x] Add alert dialog to editing of customer
 - [x] Add alert dialogs to deleting and editing an invoice
 - [ ] Real data charts instead of current representational ones
-- [ ] Feature to see when the data was last updated
+- [x] Feature to see when the data was last updated
 - [ ] Write tests
 - [ ] Deploy the application & update pipeline configuration
 - [ ] Settings page for changing theme and other preferences
