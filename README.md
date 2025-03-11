@@ -81,7 +81,5 @@ To get started with the project, follow these steps:
 - [x] Sign up feature
 - [ ] Create a fallback to homepage with error message for when database isn't accessible
 - [ ] Create loading skeletons for components
+- [ ] Style the image upload on create customer-page
 
-### Known bugs
-
-- [x] Fix edit and delete buttons not showing on customers page when on mobile
