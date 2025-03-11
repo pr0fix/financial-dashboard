@@ -69,11 +69,19 @@ To get started with the project, follow these steps:
 
 - [x] Edit customer details
 - [x] Delete customer
-- [ ] Implement an alert to confirm deletion/editing of customer
+- [x] Implement alert dialog component
+- [x] Add alert dialog to deletion of customer
+- [x] Add alert dialog to editing of customer
+- [x] Add alert dialogs to deleting and editing an invoice
 - [ ] Real data charts instead of current representational ones
 - [ ] Feature to see when the data was last updated
 - [ ] Write tests
 - [ ] Deploy the application & update pipeline configuration
 - [ ] Settings page for changing theme and other preferences
-- [ ] Sign up feature
+- [x] Sign up feature
 - [ ] Create a fallback to homepage with error message for when database isn't accessible
+- [ ] Create loading skeletons for components
+
+### Known bugs
+
+- [x] Fix edit and delete buttons not showing on customers page when on mobile

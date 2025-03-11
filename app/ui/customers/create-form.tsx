@@ -7,7 +7,7 @@ import {
   EnvelopeOpenIcon,
   PhotoIcon,
 } from "@heroicons/react/24/outline";
-import { Button } from "@/app/ui/button";
+import { Button } from "@/app/ui/general/button";
 import { createCustomer } from "@/app/lib/actions";
 import { ChangeEvent, useActionState, useState } from "react";
 

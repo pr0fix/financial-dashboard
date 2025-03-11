@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FormattedCustomersTable } from "@/app/lib/definitions";
 import { fetchFilteredCustomers } from "@/app/lib/data";
-import {  DeleteCustomer, UpdateCustomer } from "../buttons";
+import { DeleteCustomer, UpdateCustomer } from "../general/buttons";
 
 interface CustomersTableProps {
   query: string;
@@ -59,8 +59,12 @@ export default async function CustomersTable({
                       <p className="font-medium">{customer.total_paid}</p>
                     </div>
                   </div>
-                  <div className="pt-4 text-sm">
+                  <div className="flex justify-between pt-4 text-sm items-center">
                     <p>{customer.total_invoices} invoices</p>
+                    <div className="flex gap-2">
+                      <UpdateCustomer id={customer.id} />
+                      <DeleteCustomer id={customer.id} />
+                    </div>
                   </div>
                 </div>
               ))}
@@ -86,7 +90,7 @@ export default async function CustomersTable({
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-gray-200 text-gray-900">
+              <tbody className="bg-white divide-y divide-gray-200 text-gray-900">
                 {customers.map((customer) => (
                   <tr key={customer.id} className="group">
                     <td className="whitespace-nowrap bg-white py-5 pl-4 pr-3 text-sm text-black group-first-of-type:rounded-md group-last-of-type:rounded-md sm:pl-6">

@@ -8,11 +8,13 @@ import { AuthError } from "next-auth";
 import {
   CreateCustomer,
   CreateInvoice,
+  SignUpSchema,
   UpdateCustomer,
   UpdateInvoice,
 } from "./schemas";
 import { randomUUID } from "crypto";
-import { CustomerState, InvoiceState } from "./definitions";
+import { CustomerState, InvoiceState, SignUpState } from "./definitions";
+import { hash } from "bcrypt";
 
 const sql = postgres(process.env.POSTGRES_URL!, {
   ssl: process.env.NODE_ENV === "production" ? "require" : false,
@@ -114,6 +116,51 @@ export async function authenticate(
     }
     throw error;
   }
+}
+
+export async function registerUser(
+  _prevState: SignUpState,
+  formData: FormData
+) {
+  const validatedFields = SignUpSchema.safeParse(Object.fromEntries(formData));
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Invalid fields. Failed to register user.",
+    };
+  }
+
+  const { name, email, password } = validatedFields.data;
+
+  try {
+    const existingUser = await sql`SELECT * FROM users WHERE email = ${email}`;
+
+    if (existingUser.length > 0) {
+      return {
+        message: "User with this email already exists.",
+      };
+    }
+
+    const hashedPassword = await hash(password, 10);
+
+    await sql`
+      INSERT INTO users (id, name, email, password)
+      VALUES (${randomUUID()}, ${name}, ${email}, ${hashedPassword})
+    `;
+
+    await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
+    });
+  } catch (error) {
+    console.error("Database Error: Failed to Register User:", error);
+    return {
+      message: "Database Error: Failed to Register User.",
+    };
+  }
+  redirect("/dashboard");
 }
 
 export async function createCustomer(

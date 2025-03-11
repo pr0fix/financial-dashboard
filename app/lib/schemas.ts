@@ -38,3 +38,17 @@ export const CreateInvoice = InvoiceFormSchema.omit({ id: true, date: true });
 export const UpdateInvoice = InvoiceFormSchema.omit({ id: true, date: true });
 export const CreateCustomer = CustomerFormSchema.omit({ id: true });
 export const UpdateCustomer = CustomerFormSchema.omit({ id: true });
+
+export const SignUpSchema = z.object({
+  name: z.string({
+    invalid_type_error: "Please enter your name.",
+    required_error: "Please enter your name.",
+  }),
+  email: z
+    .string({
+      invalid_type_error: "Please enter your email.",
+      required_error: "Please enter your email.",
+    })
+    .email(),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+});

@@ -2,13 +2,13 @@ import { Metadata } from "next";
 import CardWrapper from "@/app/ui/dashboard/cards";
 import RevenueChart from "@/app/ui/dashboard/revenue-chart";
 import LatestInvoices from "@/app/ui/dashboard/latest-invoices";
-import { lusitana } from "@/app/ui/fonts";
+import { lusitana } from "@/app/ui/general/fonts";
 import { Suspense } from "react";
 import {
   CardsSkeleton,
   LatestInvoicesSkeleton,
   RevenueChartSkeleton,
-} from "@/app/ui/skeletons";
+} from "@/app/ui/general/skeletons";
 
 export const metadata: Metadata = {
   title: "Home",

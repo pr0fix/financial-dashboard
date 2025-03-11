@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import AcmeLogo from "@/app/ui/general/acme-logo";
-import LoginForm from "@/app/ui/general/login-form";
 import { Suspense } from "react";
+import SignUpForm from "../ui/general/signup-form";
 
 export const metadata: Metadata = {
-  title: "Login",
+  title: "SignUp",
 };
 
 export default function LoginPage() {
@@ -17,7 +17,7 @@ export default function LoginPage() {
           </div>
         </div>
         <Suspense>
-          <LoginForm />
+          <SignUpForm />
         </Suspense>
       </div>
     </main>
