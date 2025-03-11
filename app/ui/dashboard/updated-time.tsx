@@ -16,5 +16,5 @@ export function UpdatedTime({ lastUpdated }: { lastUpdated: Date }) {
     return () => clearInterval(interval);
   }, [lastUpdated]);
 
-  return <h3 className="ml-2 text-sm text-gray-500">Updated {timeAgo}</h3>
+  return <h3 className="ml-2 text-sm text-gray-500">Updated {timeAgo}</h3>;
 }
