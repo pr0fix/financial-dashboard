@@ -104,3 +104,12 @@ export type CustomerForm = {
   name: string;
   email: string;
 };
+
+export type SignUpState = {
+  errors?: {
+    name?: string[];
+    email?: string[];
+    password?: string[];
+  };
+  message?: string | null;
+};

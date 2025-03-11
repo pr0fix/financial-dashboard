@@ -78,7 +78,7 @@ To get started with the project, follow these steps:
 - [ ] Write tests
 - [ ] Deploy the application & update pipeline configuration
 - [ ] Settings page for changing theme and other preferences
-- [ ] Sign up feature
+- [x] Sign up feature
 - [ ] Create a fallback to homepage with error message for when database isn't accessible
 - [ ] Create loading skeletons for components
 
