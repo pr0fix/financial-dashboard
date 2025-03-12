@@ -4,6 +4,7 @@
     "build": "next build",
     "dev": "next dev --turbopack",
     "start": "next start",
+    "seed": "ts-node ./scripts/seedDatabase.js",
     "lint": "next lint",
     "test": "jest"
   },

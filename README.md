@@ -54,7 +54,7 @@ To get started with the project, follow these steps:
 5. Seed the database with sample data by running this in the root of the project:
 
    ```bash
-   node .\scripts\seedDatabase.js
+   npm run seed
    ```
 
 6. Run the development server:
@@ -75,11 +75,11 @@ To get started with the project, follow these steps:
 - [x] Add alert dialogs to deleting and editing an invoice
 - [ ] Real data charts instead of current representational ones
 - [x] Feature to see when the data was last updated
-- [ ] Write tests
+- [x] Initialize Jest to write unit-tests
+- [ ] Write end-to-end tests
 - [ ] Deploy the application & update pipeline configuration
 - [ ] Settings page for changing theme and other preferences
 - [x] Sign up feature
 - [ ] Create a fallback to homepage with error message for when database isn't accessible
 - [ ] Create loading skeletons for components
 - [ ] Style the image upload on create customer-page
-
