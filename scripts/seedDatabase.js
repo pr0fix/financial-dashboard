@@ -9,9 +9,7 @@ const {
   users,
 } = require("../app/lib/placeholder-data.ts");
 
-const sql = postgres(process.env.POSTGRES_URL, {
-  ssl: process.env.NODE_ENV === "production" ? "require" : false,
-});
+const sql = postgres(process.env.POSTGRES_URL, {ssl: "require"});
 
 async function resetDatabase() {
   await sql`
