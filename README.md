@@ -65,6 +65,32 @@ To get started with the project, follow these steps:
 
 7. Open your browser and visit `http://localhost:3000` to see the application in action!
 
+### Screenshots
+
+#### Dashboard
+
+<img src="./public/screenshots/dashboard.png" alt="dashboard-page" height="auto" width="800px"/>
+
+#### Invoices
+
+<img src="./public/screenshots/invoices.png" alt="invoices-page" height="auto" width="800px"/>
+
+#### Create Invoice
+
+<img src="./public/screenshots/create-invoice.png" alt="create-invoice-form" height="auto" width="800px"/>
+
+#### Customers
+
+<img src="./public/screenshots/customers.png" alt="customers-page" height="auto" width="800px"/>
+
+#### Create Customer
+
+<img src="./public/screenshots/create-customer.png" alt="create-customer-form" height="auto" width="800px"/>
+
+#### Settings
+
+<img src="./public/screenshots/settings.png" alt="settings-page" height="auto" width="800px"/>
+
 ### Upcoming Features
 
 - [x] Edit customer details
@@ -80,6 +106,6 @@ To get started with the project, follow these steps:
 - [ ] Deploy the application & update pipeline configuration
 - [ ] Settings page for changing theme and other preferences
 - [x] Sign up feature
-- [ ] Create a fallback to homepage with error message for when database isn't accessible
+- [x] Create a fallback to homepage with error message for when database isn't accessible
 - [ ] Create loading skeletons for components
 - [ ] Style the image upload on create customer-page
