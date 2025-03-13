@@ -8,6 +8,7 @@ For more information, see the [App Router Course](https://nextjs.org/learn/dashb
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
+- [Screenshots](#screenshots)
 - [Upcoming Features](#upcoming-features)
 
 ### Features
@@ -93,19 +94,19 @@ To get started with the project, follow these steps:
 
 ### Upcoming Features
 
-- [x] Edit customer details
-- [x] Delete customer
-- [x] Implement alert dialog component
-- [x] Add alert dialog to deletion of customer
-- [x] Add alert dialog to editing of customer
-- [x] Add alert dialogs to deleting and editing an invoice
+- [x] ~~Edit customer details~~
+- [x] ~~Delete customer~~
+- [x] ~~Implement alert dialog component~~
+- [x] ~~Add alert dialog to deletion of customer~~
+- [x] ~~Add alert dialog to editing of customer~~
+- [x] ~~Add alert dialogs to deleting and editing an invoice~~
 - [ ] Real data charts instead of current representational ones
-- [x] Feature to see when the data was last updated
-- [x] Initialize Jest to write unit-tests
+- [x] ~~Feature to see when the data was last updated~~
+- [x] ~~Initialize Jest to write unit-tests~~
 - [ ] Write end-to-end tests
 - [ ] Deploy the application & update pipeline configuration
 - [ ] Settings page for changing theme and other preferences
-- [x] Sign up feature
-- [x] Create a fallback to homepage with error message for when database isn't accessible
+- [x] ~~Sign up feature~~
+- [x] ~~Create a fallback to homepage with error message for when database isn't accessible~~
 - [ ] Create loading skeletons for components
 - [ ] Style the image upload on create customer-page
