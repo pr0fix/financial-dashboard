@@ -109,3 +109,4 @@ To get started with the project, follow these steps:
 - [x] Create a fallback to homepage with error message for when database isn't accessible
 - [ ] Create loading skeletons for components
 - [ ] Style the image upload on create customer-page
+- [ ] Fix the issue where new data isn't updated on deployed version
