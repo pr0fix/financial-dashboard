@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import SignUpForm from "../ui/general/signup-form";
 
 export const metadata: Metadata = {
-  title: "SignUp",
+  title: "Sign Up",
 };
 
 export default function LoginPage() {
