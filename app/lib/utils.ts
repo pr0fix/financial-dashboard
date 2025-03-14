@@ -68,7 +68,8 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
   ];
 };
 
-export function formatUpdateTime(date: Date): string {
+export function formatUpdateTime(dateInput: string): string {
+  const date = new Date(dateInput);
   const now = new Date();
   const diffMs = now.getTime() - date.getTime();
   const diffSecs = Math.floor(diffMs / 1000);
