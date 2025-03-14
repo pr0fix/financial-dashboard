@@ -68,22 +68,33 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
   ];
 };
 
-export function formatUpdateTime(dateInput: string): string {
-  const date = new Date(dateInput);
-  const now = new Date();
-  const diffMs = now.getTime() - date.getTime();
-  const diffSecs = Math.floor(diffMs / 1000);
-  const diffMins = Math.floor(diffSecs / 60);
-  const diffHours = Math.floor(diffMins / 60);
-  const diffDays = Math.floor(diffHours / 24);
+export function formatUpdateTime(dateInput: Date | string): string {
+  try {
+    const date =
+      typeof dateInput === "string" ? new Date(dateInput) : dateInput;
 
-  if (diffSecs < 60) {
-    return "just now";
-  } else if (diffMins < 60) {
-    return `${diffMins} ${diffMins === 1 ? "minute" : "minutes"} ago`;
-  } else if (diffHours < 24) {
-    return `${diffHours} ${diffHours === 1 ? "hour" : "hours"} ago`;
-  } else {
-    return `${diffDays} ${diffDays === 1 ? "day" : "days"} ago`;
+    if (!(date instanceof Date) || isNaN(date.getTime())) {
+      return "unknown time";
+    }
+
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffSecs = Math.floor(diffMs / 1000);
+    const diffMins = Math.floor(diffSecs / 60);
+    const diffHours = Math.floor(diffMins / 60);
+    const diffDays = Math.floor(diffHours / 24);
+
+    if (diffSecs < 60) {
+      return "just now";
+    } else if (diffMins < 60) {
+      return `${diffMins} ${diffMins === 1 ? "minute" : "minutes"} ago`;
+    } else if (diffHours < 24) {
+      return `${diffHours} ${diffHours === 1 ? "hour" : "hours"} ago`;
+    } else {
+      return `${diffDays} ${diffDays === 1 ? "day" : "days"} ago`;
+    }
+  } catch (error) {
+    console.error("Error formatting update time:", error);
+    return "recently";
   }
 }
