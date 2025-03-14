@@ -3,12 +3,12 @@
 import { formatUpdateTime } from "@/app/lib/utils";
 import { useEffect, useState } from "react";
 
-export function UpdatedTime({ lastUpdated }: { lastUpdated: Date }) {
-  const [timeAgo, setTimeAgo] = useState<string>(() =>
-    formatUpdateTime(lastUpdated)
-  );
+export function UpdatedTime({ lastUpdated }: { lastUpdated: string | Date }) {
+  const [timeAgo, setTimeAgo] = useState<string>("loading...");
 
   useEffect(() => {
+    setTimeAgo(formatUpdateTime(lastUpdated));
+
     const interval = setInterval(() => {
       setTimeAgo(formatUpdateTime(lastUpdated));
     }, 60000);

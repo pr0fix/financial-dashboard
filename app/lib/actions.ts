@@ -48,6 +48,7 @@ export async function createInvoice(
   }
 
   revalidatePath("/dashboard/invoices");
+  revalidatePath("/dashboard");
   redirect("/dashboard/invoices");
 }
 
@@ -81,6 +82,7 @@ export async function updateInvoice(
   }
 
   revalidatePath("/dashboard/invoices");
+  revalidatePath("/dashboard");
   redirect("/dashboard/invoices");
 }
 
@@ -95,6 +97,7 @@ export async function deleteInvoice(id: string) {
   }
 
   revalidatePath("/dashboard/invoices");
+  revalidatePath("/dashboard");
 }
 
 export async function authenticate(
@@ -194,6 +197,7 @@ export async function createCustomer(
   }
 
   revalidatePath("/dashboard/customers");
+  revalidatePath("/dashboard");
   redirect("/dashboard/customers");
 }
 
@@ -232,6 +236,7 @@ export async function updateCustomer(
     };
   }
   revalidatePath("/dashboard/customers");
+  revalidatePath("/dashboard");
   redirect("/dashboard/customers");
 }
 
@@ -246,4 +251,5 @@ export async function deleteCustomer(id: string) {
   }
 
   revalidatePath("/dashboard/customers");
+  revalidatePath("/dashboard");
 }

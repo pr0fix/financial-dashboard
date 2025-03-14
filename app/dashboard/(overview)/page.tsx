@@ -10,6 +10,8 @@ import {
   RevenueChartSkeleton,
 } from "@/app/ui/general/skeletons";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Home",
 };
