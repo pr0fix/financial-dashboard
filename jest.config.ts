@@ -9,6 +9,12 @@ const config: Config = {
   clearMocks: true,
   coverageProvider: "v8",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  testPathIgnorePatterns: [
+    "<rootDir>/node_modules/",
+    "<rootDir>/.next/",
+    "<rootDir>/e2e-tests/",
+    "<rootDir>/playwright/",
+  ],
   testEnvironment: "jsdom",
 };
 
