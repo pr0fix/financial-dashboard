@@ -1,15 +1,15 @@
 import { test, expect } from "@playwright/test";
 
-test("index page has the correct title", async ({ page }) => {
+test.beforeEach(async ({ page }) => {
   await page.goto("");
+});
 
+test("index page has the correct title", async ({ page }) => {
   await expect(page).toHaveTitle(/Acme Dashboard/);
 });
 
 test("should navigate to the login page", async ({ page }) => {
-  await page.goto("");
-
-  await page.click("text=Log in");
+  await page.getByText("Log in").click();
 
   await expect(page).toHaveURL("/login");
 
@@ -17,9 +17,7 @@ test("should navigate to the login page", async ({ page }) => {
 });
 
 test("should navigate to the sign up page", async ({ page }) => {
-  await page.goto("");
-
-  await page.click("text=Sign up");
+  await page.getByText("Sign up").click();
 
   await expect(page).toHaveURL("/sign-up");
 
