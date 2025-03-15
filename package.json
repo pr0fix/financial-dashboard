@@ -6,7 +6,8 @@
     "start": "next start",
     "seed": "ts-node ./scripts/seedDatabase.js",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -33,6 +34,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.51.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
