@@ -1,4 +1,4 @@
-name: Development Pipeline
+name: Deployment Pipeline
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  development_pipeline:
+  deployment_pipeline:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -22,6 +22,9 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
+
+      - name: Build production version
+        run: npm run build
 
       - name: Run Unit-Tests
         run: npm run test
