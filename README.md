@@ -106,7 +106,9 @@ To get started with the project, follow these steps:
 - [ ] Real data charts instead of current representational ones
 - [x] ~~Feature to see when the data was last updated~~
 - [x] ~~Initialize Jest to write unit-tests~~
-- [x] Write end-to-end tests
+- [x] ~~Write unit tests for login page~~
+- [x] ~~Write end-to-end tests for landing page, login & signup~~
+- [ ] Write end-to-end tests for dashboard, customers and invoices pages
 - [x] Deploy the application & update pipeline configuration
 - [ ] Settings page for changing theme and other preferences
 - [x] ~~Sign up feature~~
