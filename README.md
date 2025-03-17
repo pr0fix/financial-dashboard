@@ -106,11 +106,14 @@ To get started with the project, follow these steps:
 - [ ] Real data charts instead of current representational ones
 - [x] ~~Feature to see when the data was last updated~~
 - [x] ~~Initialize Jest to write unit-tests~~
-- [x] Write end-to-end tests
-- [x] Deploy the application & update pipeline configuration
+- [x] ~~Write unit tests for login page~~
+- [x] ~~Write unit tests for sign up page~~
+- [x] ~~Write end-to-end tests for landing page, login & signup~~
+- [ ] Write end-to-end tests for dashboard, customers and invoices pages
+- [x] ~~Deploy the application & update pipeline configuration~~
 - [ ] Settings page for changing theme and other preferences
 - [x] ~~Sign up feature~~
 - [x] ~~Create a fallback to homepage with error message for when database isn't accessible~~
 - [ ] Create loading skeletons for components
 - [ ] Style the image upload on create customer-page
-- [x] Fix the issue where new data isn't updated on deployed version
+- [x] ~~Fix the issue where new data isn't updated on deployed version~~
