@@ -235,8 +235,12 @@ export function CustomersMobileSkeleton() {
           <div className="h-10 w-20 rounded bg-gray-100" />
         </div>
       </div>
-      <div className="pt-4">
+      <div className="flex justify-between items-center pt-4">
         <div className="h-6 w-20 rounded bg-gray-100"></div>
+        <div className="flex flex-row gap-2">
+          <div className="h-10 w-10 rounded bg-gray-100"></div>
+          <div className="h-10 w-10 rounded bg-gray-100"></div>
+        </div>
       </div>
     </div>
   );
@@ -268,52 +272,63 @@ export function CustomersTableRowSkeleton() {
       <td className="whitespace-nowrap px-3 py-3">
         <div className="h-6 w-16 rounded bg-gray-100"></div>
       </td>
+      {/* Actions */}
+      <td className="whitespace-nowrap py-3 pl-6 pr-3">
+        <div className="flex justify-end gap-3">
+          <div className="h-[38px] w-[38px] rounded bg-gray-100"></div>
+          <div className="h-[38px] w-[38px] rounded bg-gray-100"></div>
+        </div>
+      </td>
     </tr>
   );
 }
 
 export function CustomersTableSkeleton() {
   return (
-    <div className="mt-6 flow-root">
+    <div className=" flow-root">
       <div className="inline-block min-w-full align-middle">
-        <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
-          <div className="md:hidden">
-            <CustomersMobileSkeleton />
-            <CustomersMobileSkeleton />
-            <CustomersMobileSkeleton />
-            <CustomersMobileSkeleton />
-            <CustomersMobileSkeleton />
-            <CustomersMobileSkeleton />
+        <div
+          className={`${shimmer} relative mt-6 overflow-hidden rounded-md bg-gray-100`}
+        >
+          <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
+            <div className="md:hidden">
+              <CustomersMobileSkeleton />
+              <CustomersMobileSkeleton />
+              <CustomersMobileSkeleton />
+              <CustomersMobileSkeleton />
+              <CustomersMobileSkeleton />
+              <CustomersMobileSkeleton />
+            </div>
+            <table className="hidden min-w-full text-gray-900 md:table">
+              <thead className="rounded-lg text-left text-sm font-normal">
+                <tr>
+                  <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
+                    Name
+                  </th>
+                  <th scope="col" className="px-3 py-5 font-medium">
+                    Email
+                  </th>
+                  <th scope="col" className="px-3 py-5 font-medium">
+                    Total Invoices
+                  </th>
+                  <th scope="col" className="px-3 py-5 font-medium">
+                    Total Pending
+                  </th>
+                  <th scope="col" className="px-3 py-5 font-medium">
+                    Total Paid
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white">
+                <CustomersTableRowSkeleton />
+                <CustomersTableRowSkeleton />
+                <CustomersTableRowSkeleton />
+                <CustomersTableRowSkeleton />
+                <CustomersTableRowSkeleton />
+                <CustomersTableRowSkeleton />
+              </tbody>
+            </table>
           </div>
-          <table className="hidden min-w-full text-gray-900 md:table">
-            <thead className="rounded-lg text-left text-sm font-normal">
-              <tr>
-                <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                  Name
-                </th>
-                <th scope="col" className="px-3 py-5 font-medium">
-                  Email
-                </th>
-                <th scope="col" className="px-3 py-5 font-medium">
-                  Total Invoices
-                </th>
-                <th scope="col" className="px-3 py-5 font-medium">
-                  Total Pending
-                </th>
-                <th scope="col" className="px-3 py-5 font-medium">
-                  Total Paid
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white">
-              <CustomersTableRowSkeleton />
-              <CustomersTableRowSkeleton />
-              <CustomersTableRowSkeleton />
-              <CustomersTableRowSkeleton />
-              <CustomersTableRowSkeleton />
-              <CustomersTableRowSkeleton />
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
