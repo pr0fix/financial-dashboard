@@ -28,10 +28,7 @@ export const CustomerFormSchema = z.object({
       required_error: "Please enter the customer's email.",
     })
     .email(),
-  image_url: z.string({
-    invalid_type_error: "Please enter the customer's image.",
-    required_error: "Please enter the customer's image.",
-  }),
+  image_url: z.string(),
 });
 
 export const CreateInvoice = InvoiceFormSchema.omit({ id: true, date: true });

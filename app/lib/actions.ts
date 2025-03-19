@@ -173,7 +173,11 @@ export async function createCustomer(
   imageUrl: string,
   formData: FormData
 ) {
-  formData.append("image_url", imageUrl);
+  if (imageUrl) {
+    formData.append("image_url", imageUrl);
+  } else {
+    formData.append("image_url", "/customers/placeholder.png");
+  }
 
   const validatedFields = CreateCustomer.safeParse(
     Object.fromEntries(formData)
