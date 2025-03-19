@@ -117,3 +117,4 @@ To get started with the project, follow these steps:
 - [ ] Create loading skeletons for components
 - [ ] Style the image upload on create customer-page
 - [x] ~~Fix the issue where new data isn't updated on deployed version~~
+- [x] Make uploading a profile picture optional. When the user doesn't upload one, use the placeholder.

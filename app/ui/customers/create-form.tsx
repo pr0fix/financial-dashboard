@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { Button } from "@/app/ui/general/button";
 import { createCustomer } from "@/app/lib/actions";
-import { ChangeEvent, useActionState, useState } from "react";
+import { ChangeEvent, useActionState, useRef, useState } from "react";
 
 export default function Form() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -19,6 +19,7 @@ export default function Form() {
       createCustomer(prevState, imageUrl!, formData),
     initialState
   );
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleImageUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -36,7 +37,7 @@ export default function Form() {
   return (
     <form aria-describedby="add-form-error" action={formAction}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
-        {/* Customer Name */}
+
         <div className="mb-4">
           <label htmlFor="name" className="mb-2 block text-sm font-medium">
             Choose customer name
@@ -64,7 +65,6 @@ export default function Form() {
           </div>
         </div>
 
-        {/* Invoice Amount */}
         <div className="mb-4">
           <label htmlFor="email" className="mb-2 block text-sm font-medium">
             Choose email address
@@ -97,16 +97,37 @@ export default function Form() {
             Upload Image
           </label>
           <div className="relative mt-2 rounded-md">
-            <div className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2">
-              <input
-                id="image_url"
-                name="image_url"
-                type="file"
-                accept="image/*"
-                aria-describedby="image-error"
-                onChange={handleImageUpload}
-              />
-              <PhotoIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+            <div className="peer block w-full rounded-md border border-gray-200 bg-white text-gray-500 py-2 pl-10 text-sm outline-2">
+              <div className="flex items-center">
+                <input
+                  id="image_url"
+                  name="image_url"
+                  type="file"
+                  accept="image/*"
+                  aria-describedby="image-error"
+                  onChange={handleImageUpload}
+                  className="hidden"
+                  ref={(input) => {
+                    if (input) fileInputRef.current = input;
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="flex items-start w-full"
+                >
+                  {imageUrl ? (
+                    <span className="text-sm text-gray-500">
+                      {imageUrl.split("/").pop()}
+                    </span>
+                  ) : (
+                    <span className="text-sm text-gray-500">
+                      No image selected
+                    </span>
+                  )}
+                  <PhotoIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+                </button>
+              </div>
             </div>
           </div>
           <div id="image-error" aria-live="polite" aria-atomic="true">
