@@ -69,7 +69,10 @@ export default async function CustomersTable({
                 </div>
               ))}
             </div>
-            <table className="hidden min-w-full rounded-md text-gray-900 md:table">
+            <table
+              className="hidden min-w-full rounded-md text-gray-900 md:table"
+              data-testid="customers-table"
+            >
               <thead className="rounded-md bg-gray-50 text-left text-sm font-normal">
                 <tr>
                   <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
